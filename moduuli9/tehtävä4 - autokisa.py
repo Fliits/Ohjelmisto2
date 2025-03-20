@@ -36,5 +36,6 @@ while matka < 10000:
         if a.matka > matka:
             matka = a.matka
 
+autot.sort(key=lambda a: a.nyknopeus, reverse=True)
 for a in autot:
     print(f'{a.rekisteritunnus}: {a.huippunopeus}km/h {a.nyknopeus}km/h {a.matka}km')

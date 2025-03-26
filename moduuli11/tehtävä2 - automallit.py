@@ -6,8 +6,8 @@ class Auto:
         self.nyknopeus = 0
         self.matka = 0
 
-    def kiihdytä(self,nopeus):
-        self.nyknopeus += nopeus
+    def kiihdytä(self,muutos):
+        self.nyknopeus += muutos
         if self.nyknopeus < 0:
             self.nyknopeus = 0
         if self.nyknopeus > self.huippunopeus:
@@ -16,6 +16,10 @@ class Auto:
 
     def kulje(self,aika):
         self.matka += self.nyknopeus * aika
+        return
+
+    def nopeus(self, nopeus):
+        self.nyknopeus = nopeus
         return
 
 class Sähköauto(Auto):
@@ -37,9 +41,9 @@ class Kilpailu:
     def tunti_kuluu(self):
         print("Tunti kuluu...")
         for a in self.osallistujat:
-            kiihtyvyys = random.randint(-10, 15)
+            #kiihtyvyys = random.randint(-10, 15)
             # print(kiihtyvyys) tarkistus että muuttuja voi myös olla negatiivinen
-            a.kiihdytä(kiihtyvyys)
+            #a.kiihdytä(kiihtyvyys)
             a.kulje(aika)
 
 
@@ -62,11 +66,13 @@ matka = 0
 
 #for i in range(0,10):
 #    autot.append(f'auto{i+1}')
-#    nopeus = random.randint(100, 200)
-#    autot[i] = Auto(f"ABC-{i+1}", nopeus)
+#    hnopeus = random.randint(100, 200)
+#    autot[i] = Auto(f"ABC-{i+1}", hnopeus)
 
 sähkönen = Sähköauto("ABC-15", 180, 52.5)
+sähkönen.nopeus(100)
 bensanen = Polttomoottoriauto("ACD-123", 165, 32.3)
+bensanen.nopeus(90)
 autot.append(sähkönen)
 autot.append(bensanen)
 
@@ -75,6 +81,7 @@ kisa = Kilpailu("Suuri romuralli", 8000, autot)
 while aika < 3:
     kisa.tunti_kuluu()
     aika += 1
+
 #while not kisa.kilpailu_ohi():
 #
 #    kisa.tunti_kuluu()

@@ -18,7 +18,7 @@ class Auto:
         self.matka += self.nyknopeus * aika
         return
 
-    def nopeus(self, nopeus):
+    def nopeus(self,nopeus):
         self.nyknopeus = nopeus
         return
 
@@ -71,9 +71,9 @@ matka = 0
 
 sähkönen = Sähköauto("ABC-15", 180, 52.5)
 sähkönen.nopeus(100)
+autot.append(sähkönen)
 bensanen = Polttomoottoriauto("ACD-123", 165, 32.3)
 bensanen.nopeus(90)
-autot.append(sähkönen)
 autot.append(bensanen)
 
 kisa = Kilpailu("Suuri romuralli", 8000, autot)
